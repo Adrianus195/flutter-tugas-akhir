@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "252851958029",
+    "project_id": "flutter-tugas-akhir",
+    "storage_bucket": "flutter-tugas-akhir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252851958029:android:852349ae934640a7e38044",
+        "android_client_info": {
+          "package_name": "com.example.flutter_tugas_akhir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxiUSfMSlPrBCW23hdsUpVLhgFX4k8eWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
