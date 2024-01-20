@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _isLoading = false;
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -23,6 +24,10 @@ class _LoginScreenState extends State<LoginScreen> {
   String _password = "";
 
   void _handleLogin() async {
+    setState(() {
+      _isLoading = true;
+    });
+
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: _email,
@@ -56,6 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
           );
         },
       );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -157,13 +166,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       minimumSize:
                           Size(double.infinity, 50), // Lebar dan tinggi tombol
                     ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.white, // Warna teks tombol
-                      ),
-                    ),
+                    child: _isLoading
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            "Login",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
                 ],
               ),
